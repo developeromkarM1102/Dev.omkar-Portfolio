@@ -2,8 +2,10 @@ import React from "react";
 import { Github, ExternalLink } from "lucide-react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const container = {
+
   hidden: {},
   show: {
     transition: {
@@ -23,6 +25,8 @@ const item = {
 
 const Projects = () => {
 
+  const [openIndex, setopenIndex] = useState(null);
+
   const projects = [
     {
       title: "AI-CampusSpeak",
@@ -39,8 +43,8 @@ const Projects = () => {
         "Modern interactive portfolio with animations and responsive design.",
       image: "/p2.PNG",
       tech: ["React", "Tailwind","Motion"],
-      github: "#",
-      live: "#"
+      github: "https://github.com/developeromkarM1102/Dev.omkar-Portfolio",
+      live: "https://dev-omkar-portfolio.vercel.app/"
     },
     {
       title: "Hotel Ordering System",
@@ -91,7 +95,7 @@ const Projects = () => {
 
           {projects.map((project, index) => (
 
-            <motion.div
+            <motion.div onClick={() => setopenIndex(openIndex === index ? null : index)}
               key={index}
               variants={item}
               whileHover={{
@@ -117,6 +121,7 @@ const Projects = () => {
               {/* Overlay */}
               <motion.div
                 initial={{ opacity: 0 }}
+                animate={{ opacity: openIndex === index ? 1 : 0 }}
                 whileHover={{ opacity: 1 }}
                 className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center text-center p-6"
               >

@@ -113,7 +113,7 @@ const About = () => {
             {[
               { number: "3+", label: "Projects" },
               { number: "1.5+", label: "Years Learning" },
-              { number: "15+", label: "Technologies" }
+              { number: "15+", label: "TechSkills" }
             ].map((stat, index) => (
 
               <motion.div

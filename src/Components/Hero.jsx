@@ -77,9 +77,9 @@ const Hero = () => {
   <span className="text-cyan-400">
     <TypeAnimation
       sequence={[
-        "AI-Enthusiast",
-        3000,
         "Full Stack Developer",
+        3000,
+        "AI Integrator",
         2000,
         "React Developer",
         2000,
@@ -173,7 +173,7 @@ const Hero = () => {
         transition={{ duration:1.5, repeat:Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-sm text-muted-foreground"
       >
-        Scroll ↓
+        ↓ Scroll to explore ↓
       </motion.div>
 
     </section>
