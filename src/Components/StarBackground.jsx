@@ -11,8 +11,8 @@ export const StarBackground = () => {
     for (let i = 0; i < noofStars; i++) {
       newStars.push({
         id: i,
-        top: Math.random() * 100,
-        left: Math.random() * 100,
+        top: Math.random() * 200,
+        left: Math.random() * 200,
         size: Math.random() * 3 + 1,
         duration: Math.random() * 20 + 10
       });
@@ -37,7 +37,7 @@ export const StarBackground = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute bg-white rounded-full star-move"
+          className="absolute  bg-orange-500 rounded-full star-move"
           style={{
             top: `${star.top}%`,
             left: `${star.left}%`,

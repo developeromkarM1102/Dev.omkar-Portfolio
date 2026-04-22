@@ -83,37 +83,35 @@ const About = () => {
 
           <motion.h2
             variants={item}
-            className="text-4xl md:text-5xl font-bold text-foreground"
+            className="text-4xl md:text-5xl font-bold text-foreground font-[Lato]"
           >
-            Passionate Full Stack Developer
+            Full Stack Developer<br /> & <br/><span className="text-primary">AI Builder</span>
           </motion.h2>
 
           <motion.p
             variants={item}
             className="text-muted-foreground text-lg leading-relaxed max-w-xl"
           >
-            I'm <span className="text-primary font-semibold">Omkar</span>, a
-            passionate developer focused on building modern web applications
-            with clean design and powerful functionality.
+            I'm <span className="text-primary font-semibold">Omkar</span>, a full stack developer focused on building scalable web applications and AI-powered solutions. I specialize in creating real-world products that combine clean UI with intelligent backend systems.
           </motion.p>
 
           <motion.p
             variants={item}
             className="text-muted-foreground text-lg leading-relaxed max-w-xl"
           >
-            Currently pursuing IT and continuously improving my skills in
-            frontend and backend development also in AI.
+            I have built and deployed multiple projects including AI-based platforms and full-stack systems. Currently pursuing IT while actively preparing for full stack developer internship opportunities.
           </motion.p>
 
           <motion.div
             variants={container}
-            className="grid grid-cols-3 gap-6 pt-6"
+            className="grid grid-cols-2 gap-6 pt-6"
           >
 
             {[
-              { number: "3+", label: "Projects" },
-              { number: "1.5+", label: "Years Learning" },
-              { number: "15+", label: "TechSkills" }
+              { number: "4+", label: "Projects Built" },
+              { number: "2+", label: "AI Projects" },
+              { number: "15+", label: "Technologies" },
+              { number: "100%", label: "Deployment Focus" }
             ].map((stat, index) => (
 
               <motion.div

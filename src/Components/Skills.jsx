@@ -1,57 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaJava, FaPython,} from "react-icons/fa";
-import { SiExpress, SiMongodb, SiC, SiCplusplus, SiTypescript } from "react-icons/si";
+import {motion} from "framer-motion";
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
+import {FaHtml5,FaCss3Alt,FaJs,FaReact,FaNodeJs,FaJava,FaPython,FaGithub, FaAws, FaDocker} from "react-icons/fa";
 
-const item = {
-  hidden: { opacity: 0, y: 60 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 }
-  }
+import {SiExpress,SiMongodb,SiC,SiCplusplus,SiTypescript,SiPostman, SiMysql} from "react-icons/si";
+
+const skillCategories = [
+  {
+    title: "Frontend",
+    items: [
+      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
+      { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
+      { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+      { name: "React", icon: <FaReact className="text-cyan-400" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+      { name: "Express", icon: <SiExpress className="text-gray-500 dark:text-gray-300" /> },
+      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
+      { name: "Java", icon: <FaJava className="text-red-500" /> },
+    ],
+  },
+  {
+    title: "Database",
+    items: [
+      { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+      { name: "MySQL", icon: <SiMysql className="text-blue-700" /> },
+    ],
+  },
+  {
+    title: "Languages & Tools",
+    items: [
+      { name: "C", icon: <SiC className="text-blue-400" /> },
+      { name: "C++", icon: <SiCplusplus className="text-blue-500" /> },
+      { name: "GitHub", icon: <FaGithub className="text-gray-800 dark:text-gray-200" /> },  
+      { name: "AWS", icon: <FaAws className="text-orange-400" /> },
+      { name: "Docker", icon: <FaDocker className="text-blue-500" /> },
+      { name: "Postman", icon: <SiPostman className="text-orange-600" /> },
+    ],
+  },
+];
+
+const SkillRow = ({ skills, direction = "left" }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const speed = skills.length < 3 ? 8 : 20;
+
+  return (
+    <div
+      className="relative overflow-hidden py-6"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* LEFT FADE */}
+      <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
+
+      {/* RIGHT FADE */}
+      <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
+
+      <motion.div
+        className="flex gap-8 w-max"
+        animate={
+          isHovered
+            ? {}
+            : {
+                x:
+                  direction === "left"
+                    ? ["0%", "-50%"]
+                    : ["-50%", "0%"],
+              }
+        }
+        transition={{
+          repeat: Infinity,
+          duration: speed,
+          ease: "linear",
+        }}
+      >
+        {[...skills, ...skills, ...skills].map((skill, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center p-6 rounded-xl 
+            border border-border bg-background/80 backdrop-blur-md 
+            min-w-[140px] transition duration-300 
+            hover:scale-110 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] dark:border-b-blue-500 dark:border-t-pink-500"
+          >
+            <div className="text-4xl mb-3">
+              {skill.icon}
+            </div>
+
+            <p className="text-foreground/80 font-medium">
+              {skill.name}
+            </p>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
 };
 
 const Skills = () => {
-
-  const skills = [
-    { name: "HTML", icon: <FaHtml5 /> },
-    { name: "CSS", icon: <FaCss3Alt /> },
-    { name: "JavaScript", icon: <FaJs /> },
-    { name: "React", icon: <FaReact /> },
-    { name: "Node.js", icon: <FaNodeJs /> },
-    { name: "Express", icon: <SiExpress /> },
-    { name: "MongoDB", icon: <SiMongodb /> },
-    { name: "Java", icon: <FaJava /> },
-    { name: "Python", icon: <FaPython /> },
-    { name: "C", icon: <SiC /> },
-    { name: "C++", icon: <SiCplusplus /> },
-    { name: "TypeScript", icon: <SiTypescript/> },
-  ];
-
   return (
-    <section id="skills" className="py-24 px-6 overflow-hidden">
-
+    <section id="skills" className="py-24 px-6 bg-background text-foreground">
       <div className="max-w-7xl mx-auto">
 
-        {/* Title */}
-        <motion.div
-          initial={{ opacity:0, y:40 }}
-          whileInView={{ opacity:1, y:0 }}
-          transition={{ duration:0.8 }}
-          viewport={{ once:true }}
-          className="text-center mb-16"
-        >
+        {/* TITLE */}
+        <div className="text-center mb-16">
           <p className="text-primary uppercase tracking-widest">
             Skills
           </p>
@@ -64,52 +122,24 @@ const Skills = () => {
             I work with modern technologies to build scalable web applications
             and solve real-world problems efficiently.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Skills Grid */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once:true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
-        >
+        {skillCategories.map((category, index) => (
+          <div key={index} className="mb-12">
 
-          {skills.map((skill, index) => (
+            <h3 className="text-xl font-semibold mb-4 text-primary">
+              {category.title}
+            </h3>
 
-            <motion.div
-              key={index}
-              variants={item}
-              whileHover={{
-                scale:1.1,
-                rotateX:10,
-                rotateY:-10,
-                boxShadow:"0px 0px 25px rgba(99,102,241,0.5)"
-              }}
-              transition={{ type:"spring", stiffness:120 }}
-              className="flex flex-col items-center justify-center p-6 rounded-xl border border-primary/20 hover:border-primary bg-background/40 backdrop-blur-md"
-            >
+            <SkillRow
+              skills={category.items}
+              direction={index % 2 === 0 ? "left" : "right"}
+            />
 
-              <motion.div
-                whileHover={{ rotate:360 }}
-                transition={{ duration:0.8 }}
-                className="text-4xl text-primary mb-3"
-              >
-                {skill.icon}
-              </motion.div>
-
-              <p className="text-foreground font-medium">
-                {skill.name}
-              </p>
-
-            </motion.div>
-
-          ))}
-
-        </motion.div>
+          </div>
+        ))}
 
       </div>
-
     </section>
   );
 };

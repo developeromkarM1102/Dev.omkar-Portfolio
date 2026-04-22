@@ -51,9 +51,9 @@ const Navbar = () => {
     >
       {item.icon}
 
-      <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 
+      <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 
       opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100
-      bg-none text-green-500 text-xs px-2 py-1 rounded transition">
+      bg-none text-orange-500 text-xs px-2 py-1 rounded transition">
         {item.name}
       </span>
 

@@ -37,8 +37,8 @@ const Home = () => {
       {/* main content */}
       <Hero/>
       <About/>
-      <Skills/>
       <Projects/>
+      <Skills/>
       <Contact/>
       {/* Footer */}
       <Footer/>
