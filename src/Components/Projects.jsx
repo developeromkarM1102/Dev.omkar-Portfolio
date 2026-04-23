@@ -141,11 +141,14 @@ const Projects = () => {
               className="group relative overflow-hidden rounded-xl border border-primary/20 hover:border-primary min-h-auto flex flex-col"
             >
 
-              {/* Image */}
-              <div className="overflow-hidden">
+              <div className="overflow-hidden rounded-xl aspect-[16/9]">
                 <motion.img
                   src={project.image}
+                  loading="lazy"
+                  decoding="async"
                   alt={project.title}
+                  width={500}
+                  height={300}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.4 }}
                   className="w-full h-full object-cover"
@@ -157,7 +160,7 @@ const Projects = () => {
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 animate={{ opacity: openIndex === index ? 1 : 0 }}
-                className="absolute inset-0 bg-black/85 flex flex-col justify-center items-center overflow-y-auto text-center p-4 sm:p-6 transition-all"
+                className="absolute inset-0 bg-black/85 flex flex-col justify-center items-center overflow-y-auto text-center p-4 pt-15 sm:p-6 transition-all"
               >
 
                 <h3 className="text-lg sm:text-xl mt-5 font-semibold text-white ">

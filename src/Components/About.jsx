@@ -62,6 +62,7 @@ const About = () => {
             <img
               src="/portfolio2.jpeg"
               alt="Omkar"
+              loading="lazy"
               className="relative w-80 h-80 object-cover rounded-2xl border border-primary/30 shadow-2xl"
             />
 

@@ -107,13 +107,7 @@ const Hero = () => {
           Built AI-powered projects | MERN Stack | Deployed Applications
           </motion.p>
 
-          {/* Description */}
-          <motion.p
-            variants={item}
-            className="text-muted-foreground text-lg max-w-xl leading-relaxed"
-          >
-            I build scalable full-stack applications and AI-powered systems that solve real-world problems. Currently focused on creating production-ready projects and looking for full stack internship opportunities.
-          </motion.p>
+          
 
           {/* Buttons */}
           <motion.div
