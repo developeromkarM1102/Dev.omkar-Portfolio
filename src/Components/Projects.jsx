@@ -30,6 +30,32 @@ const Projects = () => {
   const projects = [
 
     {
+      title: "NavGati – AI-Powered Ride Booking Platform",
+      description:
+        "An AI-powered ride booking platform that allows users to book rides using natural language or voice-based requests. It intelligently understands travel requirements, recommends suitable ride options, estimates fares, and connects users with available drivers through a seamless real-time booking experience.",
+      image: "/Navgati.png",
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Gemini API",
+        "Socket.io"
+      ],
+      github: "https://github.com/developeromkarM1102/NAVGATI-AI-Powered-Ride-Booking-Platform",
+      live: "https://navgati-ai-powered-ride-booking-pla-nu.vercel.app/",
+      features: [
+        "AI-powered ride booking using natural language processing",
+        "Intelligent ride recommendations and fare estimation",
+        "User and driver authentication with Google OAuth",
+        "Real-time ride booking and status updates using Socket.io",
+        "Driver dashboard with booking management",
+        "Live driver location tracking and ride navigation",
+        "Automated pickup and destination extraction"
+      ]
+    }, {
       title: "AI Interview Prep Platform",
       description:
         "An AI-powered interview preparation platform that creates personalized mock interviews based on your resume, self-description, and target job role. It simulates real interview scenarios and provides intelligent feedback to improve performance.",
